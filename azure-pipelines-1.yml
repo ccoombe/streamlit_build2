@@ -1,0 +1,26 @@
+trigger:
+- master
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- task: UsePythonVersion@0
+  inputs:
+    versionSpec: '3.x'  # Use the latest Python 3 version
+    addToPath: true
+
+- script: |
+    python -m pip install --upgrade pip
+    pip install -r requirements.txt
+  displayName: 'Install dependencies'
+
+- script: |
+    pytest
+  displayName: 'Run tests'
+
+- script: |
+   streamlit_app.py  # Replace app.py with the name of your Streamlit application file
+  displayName: 'Build Streamlit application'
+
+# Add deployment steps here to deploy your Streamlit application to your hosting platform
