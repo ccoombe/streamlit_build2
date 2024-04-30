@@ -1,8 +1,8 @@
 import streamlit as st
 import pandas as pd
+import streamlit_authenticator as stauth
 from streamlit_aggrid import AgGrid, GridUpdateMode, GridOptionsBuilder
 from functions import remove_columns, clean_name, clean_addresses
-import streamlit_authenticator as stauth
 import yaml
 from yaml.loader import SafeLoader
 
